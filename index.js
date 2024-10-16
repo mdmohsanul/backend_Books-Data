@@ -2,12 +2,11 @@ const { initializeDb } = require("./db/db.connect");
 const Books = require("./models/book.model");
 const express = require("express");
 const cors = require("cors");
+app.use(cors());
+const app = express();
+app.use(express.json());
 
 initializeDb();
-const app = express();
-app.use(cors());
-
-app.use(express.json());
 
 async function getAllBooks() {
   try {
