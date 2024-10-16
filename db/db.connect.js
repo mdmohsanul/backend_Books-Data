@@ -5,7 +5,10 @@ const mongo_Url = process.env.MONGODB_URL;
 
 const initializeDb = () => {
   try {
-    const connection = mongoose.connect(mongo_Url);
+    const connection = mongoose.connect(mongo_Url, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     if (connection) {
       console.log("Database connected");
     }
